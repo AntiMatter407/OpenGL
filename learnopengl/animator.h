@@ -129,7 +129,7 @@ public:
 		glLineWidth(6.0f); 
 		glBindVertexArray(VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, m_BonePositions.size() * sizeof(glm::vec4), &m_BonePositions[0]);
+		glBufferData(GL_ARRAY_BUFFER, m_BonePositions.size() * sizeof(glm::vec4), &m_BonePositions[0], GL_DYNAMIC_DRAW);
 		glDrawElements(GL_LINE, static_cast<unsigned int>(m_BoneLink.size()), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
