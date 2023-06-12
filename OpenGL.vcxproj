@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{73f4811c-0093-4845-863c-fa45a366519f}</ProjectGuid>
+    <RootNamespace>OpenGL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>D:\Project\Library\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Project\Render\OpenGL;D:\Project\Library\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>D:\Project\Library\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Project\Render\OpenGL;D:\Project\Library\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Download\glad\src\glad.c" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="learnopengl\animation.h" />
+    <ClInclude Include="learnopengl\animator.h" />
+    <ClInclude Include="learnopengl\animdata.h" />
+    <ClInclude Include="learnopengl\assimp_glm_helpers.h" />
+    <ClInclude Include="learnopengl\bone.h" />
+    <ClInclude Include="learnopengl\camera.h" />
+    <ClInclude Include="learnopengl\mesh.h" />
+    <ClInclude Include="learnopengl\model.h" />
+    <ClInclude Include="learnopengl\model_animation.h" />
+    <ClInclude Include="learnopengl\shader.h" />
+    <ClInclude Include="learnopengl\shader_m.h" />
+    <ClInclude Include="Shaders\bone.fs" />
+    <ClInclude Include="stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assimp-vc143-mt.dll" />
+    <None Include="OpenGL.exe" />
+    <None Include="resources\levels\four.lvl" />
+    <None Include="resources\levels\one.lvl" />
+    <None Include="resources\levels\three.lvl" />
+    <None Include="resources\levels\two.lvl" />
+    <None Include="resources\objects\backpack\backpack.mtl" />
+    <None Include="resources\objects\cyborg\cyborg.blend" />
+    <None Include="resources\objects\cyborg\cyborg.blend1" />
+    <None Include="resources\objects\cyborg\cyborg.mtl" />
+    <None Include="resources\objects\nanosuit\nanosuit.mtl" />
+    <None Include="resources\objects\planet\planet.mtl" />
+    <None Include="resources\objects\Pulling Lever.fbx" />
+    <None Include="resources\objects\rock\rock.mtl" />
+    <None Include="resources\objects\vampire\dancing_vampire.dae" />
+    <None Include="resources\objects\Walking.fbx" />
+    <None Include="Shaders\anim_model.fs" />
+    <None Include="Shaders\anim_model.vs" />
+    <None Include="Shaders\bone.vs" />
+    <None Include="Shaders\ModelFragmentShader.fs" />
+    <None Include="Shaders\ModelVertexShader.vs" />
+    <None Include="Shaders\pbr.fs" />
+    <None Include="Shaders\pbr.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\bleep.mp3" />
+    <Media Include="resources\audio\bleep.wav" />
+    <Media Include="resources\audio\breakout.mp3" />
+    <Media Include="resources\audio\powerup.wav" />
+    <Media Include="resources\audio\solid.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\Antonio-Bold.ttf" />
+    <Font Include="resources\fonts\Antonio-Light.ttf" />
+    <Font Include="resources\fonts\Antonio-Regular.ttf" />
+    <Font Include="resources\fonts\OCRAEXT.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\fonts\SIL Open Font License.txt" />
+    <Text Include="resources\objects\backpack\source_attribution.txt" />
+    <Text Include="resources\objects\cyborg\LICENSE.txt" />
+    <Text Include="resources\objects\planet\source.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\objects\backpack\ao.jpg" />
+    <Image Include="resources\objects\backpack\diffuse.jpg" />
+    <Image Include="resources\objects\backpack\normal.png" />
+    <Image Include="resources\objects\backpack\roughness.jpg" />
+    <Image Include="resources\objects\backpack\specular.jpg" />
+    <Image Include="resources\objects\cyborg\cyborg_diffuse.png" />
+    <Image Include="resources\objects\cyborg\cyborg_normal.png" />
+    <Image Include="resources\objects\cyborg\cyborg_specular.png" />
+    <Image Include="resources\objects\nanosuit\arm_dif.png" />
+    <Image Include="resources\objects\nanosuit\arm_showroom_ddn.png" />
+    <Image Include="resources\objects\nanosuit\arm_showroom_refl.png" />
+    <Image Include="resources\objects\nanosuit\arm_showroom_spec.png" />
+    <Image Include="resources\objects\nanosuit\back.jpg" />
+    <Image Include="resources\objects\nanosuit\body_dif.png" />
+    <Image Include="resources\objects\nanosuit\body_showroom_ddn.png" />
+    <Image Include="resources\objects\nanosuit\body_showroom_refl.png" />
+    <Image Include="resources\objects\nanosuit\body_showroom_spec.png" />
+    <Image Include="resources\objects\nanosuit\cell_arm_alpha.png" />
+    <Image Include="resources\objects\nanosuit\cell_body_alpha.png" />
+    <Image Include="resources\objects\nanosuit\cell_ddn.png" />
+    <Image Include="resources\objects\nanosuit\cell_hand_alpha.png" />
+    <Image Include="resources\objects\nanosuit\cell_helmet_alpha.png" />
+    <Image Include="resources\objects\nanosuit\cell_leg_alpha.png" />
+    <Image Include="resources\objects\nanosuit\front.jpg" />
+    <Image Include="resources\objects\nanosuit\glass_ddn.png" />
+    <Image Include="resources\objects\nanosuit\glass_dif.png" />
+    <Image Include="resources\objects\nanosuit\glass_refl.png" />
+    <Image Include="resources\objects\nanosuit\hand_dif.png" />
+    <Image Include="resources\objects\nanosuit\hand_showroom_ddn.png" />
+    <Image Include="resources\objects\nanosuit\hand_showroom_refl.png" />
+    <Image Include="resources\objects\nanosuit\hand_showroom_spec.png" />
+    <Image Include="resources\objects\nanosuit\helmet_diff.png" />
+    <Image Include="resources\objects\nanosuit\helmet_showroom_ddn.png" />
+    <Image Include="resources\objects\nanosuit\helmet_showroom_refl.png" />
+    <Image Include="resources\objects\nanosuit\helmet_showroom_spec.png" />
+    <Image Include="resources\objects\nanosuit\leg_dif.png" />
+    <Image Include="resources\objects\nanosuit\leg_showroom_ddn.png" />
+    <Image Include="resources\objects\nanosuit\leg_showroom_refl.png" />
+    <Image Include="resources\objects\nanosuit\leg_showroom_spec.png" />
+    <Image Include="resources\objects\planet\mars.png" />
+    <Image Include="resources\objects\rock\rock.png" />
+    <Image Include="resources\objects\vampire\textures\Vampire_diffuse.png" />
+    <Image Include="resources\objects\vampire\textures\Vampire_emission.png" />
+    <Image Include="resources\objects\vampire\textures\Vampire_normal.png" />
+    <Image Include="resources\objects\vampire\textures\Vampire_specular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="resources\objects\backpack\backpack.obj" />
+    <Object Include="resources\objects\cyborg\cyborg.obj" />
+    <Object Include="resources\objects\nanosuit\nanosuit.obj" />
+    <Object Include="resources\objects\planet\planet.obj" />
+    <Object Include="resources\objects\rock\rock.obj" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

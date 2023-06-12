@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Download\glad\src\glad.c">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\shader_m.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\animator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\animdata.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\animation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\bone.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\assimp_glm_helpers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learnopengl\model_animation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shaders\bone.fs">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\ModelFragmentShader.fs" />
+    <None Include="Shaders\ModelVertexShader.vs" />
+    <None Include="Shaders\pbr.vs" />
+    <None Include="Shaders\pbr.fs" />
+    <None Include="Shaders\anim_model.vs" />
+    <None Include="Shaders\anim_model.fs" />
+    <None Include="Shaders\bone.vs" />
+    <None Include="assimp-vc143-mt.dll" />
+    <None Include="OpenGL.exe" />
+    <None Include="resources\levels\four.lvl" />
+    <None Include="resources\levels\one.lvl" />
+    <None Include="resources\levels\three.lvl" />
+    <None Include="resources\levels\two.lvl" />
+    <None Include="resources\objects\Pulling Lever.fbx" />
+    <None Include="resources\objects\Walking.fbx" />
+    <None Include="resources\objects\vampire\dancing_vampire.dae" />
+    <None Include="resources\objects\rock\rock.mtl" />
+    <None Include="resources\objects\planet\planet.mtl" />
+    <None Include="resources\objects\nanosuit\nanosuit.mtl" />
+    <None Include="resources\objects\cyborg\cyborg.blend" />
+    <None Include="resources\objects\cyborg\cyborg.blend1" />
+    <None Include="resources\objects\cyborg\cyborg.mtl" />
+    <None Include="resources\objects\backpack\backpack.mtl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\bleep.mp3" />
+    <Media Include="resources\audio\bleep.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="resources\audio\breakout.mp3" />
+    <Media Include="resources\audio\powerup.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="resources\audio\solid.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\Antonio-Bold.ttf" />
+    <Font Include="resources\fonts\Antonio-Light.ttf" />
+    <Font Include="resources\fonts\Antonio-Regular.ttf" />
+    <Font Include="resources\fonts\OCRAEXT.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\fonts\SIL Open Font License.txt" />
+    <Text Include="resources\objects\planet\source.txt" />
+    <Text Include="resources\objects\cyborg\LICENSE.txt" />
+    <Text Include="resources\objects\backpack\source_attribution.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\objects\vampire\textures\Vampire_diffuse.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\vampire\textures\Vampire_emission.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\vampire\textures\Vampire_normal.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\vampire\textures\Vampire_specular.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\rock\rock.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\planet\mars.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\arm_dif.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\arm_showroom_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\arm_showroom_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\arm_showroom_spec.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\back.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\body_dif.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\body_showroom_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\body_showroom_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\body_showroom_spec.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_arm_alpha.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_body_alpha.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_hand_alpha.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_helmet_alpha.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\cell_leg_alpha.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\front.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\glass_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\glass_dif.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\glass_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\hand_dif.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\hand_showroom_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\hand_showroom_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\hand_showroom_spec.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\helmet_diff.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\helmet_showroom_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\helmet_showroom_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\helmet_showroom_spec.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\leg_dif.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\leg_showroom_ddn.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\leg_showroom_refl.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\nanosuit\leg_showroom_spec.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\cyborg\cyborg_diffuse.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\cyborg\cyborg_normal.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\cyborg\cyborg_specular.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\backpack\ao.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\backpack\diffuse.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\backpack\normal.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\backpack\roughness.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\objects\backpack\specular.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="resources\objects\rock\rock.obj" />
+    <Object Include="resources\objects\planet\planet.obj" />
+    <Object Include="resources\objects\nanosuit\nanosuit.obj" />
+    <Object Include="resources\objects\cyborg\cyborg.obj" />
+    <Object Include="resources\objects\backpack\backpack.obj" />
+  </ItemGroup>
+</Project>
