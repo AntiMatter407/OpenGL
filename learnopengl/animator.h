@@ -9,6 +9,27 @@
 #include <learnopengl/bone.h>
 #include <GLFW/glfw3.h>
 
+GLenum glCheckError_(const char* file, int line)
+{
+	GLenum errorCode;
+	while ((errorCode = glGetError()) != GL_NO_ERROR)
+	{
+		std::string error;
+		switch (errorCode)
+		{
+		case GL_INVALID_ENUM:                  error = "INVALID_ENUM"; break;
+		case GL_INVALID_VALUE:                 error = "INVALID_VALUE"; break;
+		case GL_INVALID_OPERATION:             error = "INVALID_OPERATION"; break;
+		case GL_OUT_OF_MEMORY:                 error = "OUT_OF_MEMORY"; break;
+		case GL_INVALID_FRAMEBUFFER_OPERATION: error = "INVALID_FRAMEBUFFER_OPERATION"; break;
+		}
+		std::cout << error << " | " << file << " (" << line << ")" << std::endl;
+	}
+	return errorCode;
+}
+#define glCheckError() glCheckError_(__FILE__, __LINE__) 
+
+
 
 class Animator
 {
@@ -43,33 +64,16 @@ public:
 	void InitAnim()
 	{
 		m_FinalBoneMatrices.reserve(100);
-		m_FinalBoneLocalMatrices.reserve(100);
 		m_BonePositions.reserve(100);
 		for (int i = 0; i < 100; i++) {
 			m_FinalBoneMatrices.push_back(glm::mat4(1.0f));
-			m_FinalBoneLocalMatrices.push_back(glm::mat4(1.0f));
 			m_BonePositions.push_back(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 		}
 		ScanSkeleton(&m_CurrentAnimation->GetRootNode(), nullptr);
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
 		glGenBuffers(1, &EBO);
-
-		glBindVertexArray(VAO);
-
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, m_BonePositions.size() * sizeof(glm::vec4), &m_BonePositions[0], GL_DYNAMIC_DRAW);
-
-
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_BoneLink.size() * sizeof(unsigned int), &m_BoneLink[0], GL_STATIC_DRAW);
 		
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4), (void*)0);
-		glEnableVertexAttribArray(0);
-
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-		glBindVertexArray(0);
 	}
 
 	void UpdateAnimation(float dt)
@@ -111,7 +115,6 @@ public:
 			int index = boneInfoMap[nodeName].id;
 			glm::mat4 offset = boneInfoMap[nodeName].offset;
 			m_FinalBoneMatrices[index] = globalTransformation * offset;
-			m_FinalBoneLocalMatrices[index] = globalTransformation;
 			m_BonePositions[index] = globalTransformation * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 		}
 
@@ -126,18 +129,32 @@ public:
 
 	void DrawBones()
 	{
-		glLineWidth(6.0f); 
+		glClear(GL_DEPTH_BUFFER_BIT);
+		glLineWidth(2.0f);
 		glBindVertexArray(VAO);
+
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, m_BonePositions.size() * sizeof(glm::vec4), &m_BonePositions[0], GL_DYNAMIC_DRAW);
-		glDrawElements(GL_LINE, static_cast<unsigned int>(m_BoneLink.size()), GL_UNSIGNED_INT, 0);
+		glBufferData(GL_ARRAY_BUFFER, m_BonePositions.size()*sizeof(glm::vec4), &m_BonePositions[0], GL_STREAM_DRAW);
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER,  m_BoneLink.size()*sizeof(int), &m_BoneLink[0], GL_STREAM_DRAW);
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(glm::vec4), (void*)0);
+
+		glDrawElements(GL_LINES, m_BoneLink.size(), GL_UNSIGNED_INT, 0);
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 	}
 
+	std::vector<glm::vec4> GetBonePositions()
+	{
+		return m_BonePositions;
+	}
 
 private:
 	std::vector<glm::mat4> m_FinalBoneMatrices;
-	std::vector<glm::mat4> m_FinalBoneLocalMatrices;
 	std::vector<glm::vec4> m_BonePositions;
 	std::vector<unsigned int> m_BoneLink;
 	Animation* m_CurrentAnimation;

@@ -681,6 +681,9 @@
     <None Include="Shaders\pbr.fs" />
     <None Include="Shaders\pbr.vs" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\pictures\assimp1.jpeg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
