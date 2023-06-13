@@ -42,16 +42,17 @@ PS： OpenGL之前有一定的基础，所以更好上手，如果之前没接�
 
 ## Assimp
 
-	Assimp加载模型后aiNode结构
-	![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/assimp1.jpeg)
+Assimp加载模型后aiNode结构
+![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/assimp1.jpeg)
 	 
-	骨骼的树状结构
-	![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/parent_child.png)
+骨骼的树状结构
+![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/parent_child.png)
 
-	需要注意Assimp模块加载模型后aiNode的连接的树状结构和骨骼节点的树状结构是不一样的。具体表现是每个骨骼的aiBone必然对应了一个aiNode节点，反之则不成立。
-	所以在加载模型后，需要对aiNode的树状结构进行转换，转换成骨骼节点的树状结构，这样才能在动画中使用骨骼节点。
 
-	以下是将aiNode的树状结构转换成骨骼节点的树状结构的代码：
+需要注意Assimp模块加载模型后aiNode的连接的树状结构和骨骼节点的树状结构是不一样的。具体表现是每个骨骼的aiBone必然对应了一个aiNode节点，反之则不成立。
+所以在加载模型后，需要对aiNode的树状结构进行转换，转换成骨骼节点的树状结构，这样才能在动画中使用骨骼节点。
+以下是将aiNode的树状结构转换成骨骼节点的树状结构的代码：
+
 	void ReadHierarchyData(BoneNodeData& dest, const aiNode* src)
 	{
 		assert(src);
