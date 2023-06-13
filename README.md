@@ -8,7 +8,8 @@ PS： OpenGL之前有一定的基础，所以更好上手，如果之前没接�
 
 ### 1. 安装OpenGL环境
 	
-	参考OpenGL入门教程，安装的库有：
+参考OpenGL入门教程，安装的库有：
+
 		1. GLFW  （用于创建窗口和处理用户输入）
 		2. GLAD  
 		3. GLM	（数学库）
@@ -18,7 +19,8 @@ PS： OpenGL之前有一定的基础，所以更好上手，如果之前没接�
 
 ### 2. 模型下载
 
-	模型下载地址：
+模型下载地址：
+
 	https://free3d.com/3d-models/obj
 	https://www.mixamo.com/
 
@@ -38,14 +40,16 @@ PS： OpenGL之前有一定的基础，所以更好上手，如果之前没接�
 
 ## 动画原理
 	
-	推荐知乎或者CSDN上的相关文章，这里不做过多的介绍，OpenGL上也有相关知识。
+推荐知乎或者CSDN上的相关文章，这里不做过多的介绍，OpenGL上也有相关知识。
 
 ## Assimp
 
 Assimp加载模型后aiNode结构
+
 ![image](resources/pictures/assimp1.jpeg)
 	 
 骨骼的树状结构
+
 ![image](resources/pictures/parent_child.png)
 
 
@@ -86,7 +90,6 @@ Assimp加载模型后aiNode结构
 ## 效果
 	
 ### 1. 显示骨骼
-
 
 ![image](resources/pictures/LearnOpenGL.gif)
 
