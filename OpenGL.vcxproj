@@ -673,6 +673,7 @@
     <None Include="include\glm\gtx\vector_query.inl" />
     <None Include="include\glm\gtx\wrap.inl" />
     <None Include="OpenGL.exe" />
+    <None Include="README.md" />
     <None Include="Shaders\anim_model.fs" />
     <None Include="Shaders\anim_model.vs" />
     <None Include="Shaders\bone.vs" />
@@ -683,6 +684,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\pictures\assimp1.jpeg" />
+    <Image Include="resources\pictures\LearnOpenGL.gif" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1615,9 +1615,13 @@
     <None Include="include\glm\gtx\wrap.inl">
       <Filter>头文件</Filter>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\pictures\assimp1.jpeg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resources\pictures\LearnOpenGL.gif">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

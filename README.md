@@ -43,10 +43,10 @@ PS： OpenGL之前有一定的基础，所以更好上手，如果之前没接�
 ## Assimp
 
 Assimp加载模型后aiNode结构
-![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/assimp1.jpeg)
+![image](resources/pictures/assimp1.jpeg)
 	 
 骨骼的树状结构
-![image](https://github.com/AntiMatter407/OpenGL/blob/master/resources/pictures/parent_child.png)
+![image](resources/pictures/parent_child.png)
 
 
 需要注意Assimp模块加载模型后aiNode的连接的树状结构和骨骼节点的树状结构是不一样的。具体表现是每个骨骼的aiBone必然对应了一个aiNode节点，反之则不成立。
@@ -84,12 +84,11 @@ Assimp加载模型后aiNode结构
 
 
 ## 效果
-
 	
+### 1. 显示骨骼
 
 
-## 以后扩展内容
+![image](resources/pictures/LearnOpenGL.gif)
 
-	1. 显示骨骼
 
-	2. 动画融合
+### 2. 动画融合
