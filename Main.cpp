@@ -9,7 +9,7 @@
 #include <learnopengl/camera.h>
 #include <learnopengl/animator.h>
 #include <learnopengl/model_animation.h>
-
+#include <learnopengl/blender.h>
 
 
 #include <iostream>
@@ -81,22 +81,25 @@ int main()
 
 	// build and compile shaders
 	// -------------------------
-	Shader ourShader("Shaders/anim_model.vs", "Shaders/anim_model.fs");
+	Shader AnimShader("Shaders/anim_model.vs", "Shaders/anim_model.fs");
 
 	Shader BoneShader("Shaders/bone.vs", "Shaders/bone.fs");
 
 
 	// load models
 	// -----------
-	Model ourModel("resources/objects/Pulling Lever.fbx");
-	std::cout << "mesh number: " << ourModel.meshes.size() << std::endl;
-	Animation danceAnimation("resources/objects/Pulling Lever.fbx", &ourModel);
-	Animator animator(&danceAnimation);
+	Model PullingModel("resources/objects/Breakdance Ready.fbx");
+	Animation PullingAnimation("resources/objects/Breakdance Ready.fbx", &PullingModel);
+	Animator Pullinganimator(&PullingAnimation);
 
+	Animation WalkingAnimation("resources/objects/Taking Punch.fbx", &PullingModel);
+	Animator Walkinganimator(&WalkingAnimation);
+
+	Blender blender(&Pullinganimator, &Walkinganimator, 0.5);
 
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
+													
 	// render loop
 	// -----------
 	int  first = 0;
@@ -112,7 +115,7 @@ int main()
 		// input
 		// -----
 		processInput(window);
-		animator.UpdateAnimation(deltaTime);
+		blender.update(deltaTime);
 
 		// render
 		// ------
@@ -120,31 +123,54 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// don't forget to enable shader before setting uniforms
-		ourShader.use();
+		AnimShader.use();
 
 		// view/projection transformations
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.GetViewMatrix();
-		ourShader.setMat4("projection", projection);
-		ourShader.setMat4("view", view);
+		AnimShader.setMat4("projection", projection);
+		AnimShader.setMat4("view", view);
 
-		auto transforms = animator.GetFinalBoneMatrices();
-		for (int i = 0; i < transforms.size(); ++i)
-			ourShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
+		std::vector<glm::mat4> Pullingtransforms = Pullinganimator.GetFinalBoneMatrices();
+		for (int i = 0; i < Pullingtransforms.size(); ++i)
+			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Pullingtransforms[i]);
 
 		// render the loaded model
 		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
+		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
+		AnimShader.setMat4("model", model);
+		PullingModel.Draw(AnimShader);
+
+
+		std::vector<glm::mat4> Walkingtransforms = Walkinganimator.GetFinalBoneMatrices();
+		for (int i = 0; i < Walkingtransforms.size(); ++i)
+			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Walkingtransforms[i]);
+
+		// render the loaded model
+		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
-		ourShader.setMat4("model", model);
-		ourModel.Draw(ourShader);
+		AnimShader.setMat4("model", model);
+		PullingModel.Draw(AnimShader);
 
-		BoneShader.use();
+		std::vector<glm::mat4> Blendertransforms = blender.GetBlenderBoneMatrices();
+		for (int i = 0; i < Blendertransforms.size(); ++i)
+			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Blendertransforms[i]);
+
+		// render the loaded model
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
+		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
+		AnimShader.setMat4("model", model);
+		PullingModel.Draw(AnimShader);
+
+
+		/*BoneShader.use();
 		BoneShader.setMat4("projection", projection);
 		BoneShader.setMat4("view", view);
 		BoneShader.setMat4("model", model);
-		animator.DrawBones();
+		animator.DrawBones();*/
 
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)

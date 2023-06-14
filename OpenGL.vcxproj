@@ -516,6 +516,7 @@
     <ClInclude Include="learnopengl\animator.h" />
     <ClInclude Include="learnopengl\animdata.h" />
     <ClInclude Include="learnopengl\assimp_glm_helpers.h" />
+    <ClInclude Include="learnopengl\Blender.h" />
     <ClInclude Include="learnopengl\bone.h" />
     <ClInclude Include="learnopengl\camera.h" />
     <ClInclude Include="learnopengl\mesh.h" />

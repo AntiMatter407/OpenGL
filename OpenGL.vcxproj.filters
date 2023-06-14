@@ -1172,6 +1172,9 @@
     <ClInclude Include="include\KHR\khrplatform.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="learnopengl\Blender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\ModelFragmentShader.fs" />

@@ -95,3 +95,5 @@ Assimp加载模型后aiNode结构
 
 
 ### 2. 动画融合
+
+![image](resources/pictures/AnimationBlend.gif)
