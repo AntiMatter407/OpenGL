@@ -153,6 +153,11 @@ public:
 		return m_BonePositions;
 	}
 
+	Animation* getAnimation()
+	{
+		return m_CurrentAnimation;
+	}
+
 private:
 	std::vector<glm::mat4> m_FinalBoneMatrices;
 	std::vector<glm::vec4> m_BonePositions;

@@ -21,11 +21,11 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1080;
+const unsigned int SCR_HEIGHT = 720;
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 0.0f, 4.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -88,11 +88,11 @@ int main()
 
 	// load models
 	// -----------
-	Model PullingModel("resources/objects/Breakdance Ready.fbx");
-	Animation PullingAnimation("resources/objects/Breakdance Ready.fbx", &PullingModel);
+	Model Model("resources/objects/Breakdance Ready.fbx");
+	Animation PullingAnimation("resources/objects/Breakdance Ready.fbx", &Model);
 	Animator Pullinganimator(&PullingAnimation);
 
-	Animation WalkingAnimation("resources/objects/Taking Punch.fbx", &PullingModel);
+	Animation WalkingAnimation("resources/objects/Taking Punch.fbx", &Model);
 	Animator Walkinganimator(&WalkingAnimation);
 
 	Blender blender(&Pullinganimator, &Walkinganimator, 0.5);
@@ -131,47 +131,53 @@ int main()
 		AnimShader.setMat4("projection", projection);
 		AnimShader.setMat4("view", view);
 
-		std::vector<glm::mat4> Pullingtransforms = Pullinganimator.GetFinalBoneMatrices();
+		const std::vector<glm::mat4>& Pullingtransforms = Pullinganimator.GetFinalBoneMatrices();
 		for (int i = 0; i < Pullingtransforms.size(); ++i)
 			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Pullingtransforms[i]);
 
 		// render the loaded model
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
-		AnimShader.setMat4("model", model);
-		PullingModel.Draw(AnimShader);
+		glm::mat4 model_1 = glm::mat4(1.0f);
+		model_1 = glm::translate(model_1, glm::vec3(-1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
+		model_1 = glm::scale(model_1, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
+		AnimShader.setMat4("model", model_1);
+		Model.Draw(AnimShader);
 
-
-		std::vector<glm::mat4> Walkingtransforms = Walkinganimator.GetFinalBoneMatrices();
+	
+		const std::vector<glm::mat4>& Walkingtransforms = Walkinganimator.GetFinalBoneMatrices();
 		for (int i = 0; i < Walkingtransforms.size(); ++i)
 			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Walkingtransforms[i]);
 
 		// render the loaded model
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
-		AnimShader.setMat4("model", model);
-		PullingModel.Draw(AnimShader);
+		glm::mat4 model_2 = glm::mat4(1.0f);
+		model_2 = glm::translate(model_2, glm::vec3(0.0f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
+		model_2 = glm::scale(model_2, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
+		AnimShader.setMat4("model", model_2);
+		Model.Draw(AnimShader);
 
-		std::vector<glm::mat4> Blendertransforms = blender.GetBlenderBoneMatrices();
+		const std::vector<glm::mat4>& Blendertransforms = blender.GetBlenderBoneMatrices();
 		for (int i = 0; i < Blendertransforms.size(); ++i)
 			AnimShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", Blendertransforms[i]);
 
 		// render the loaded model
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
-		AnimShader.setMat4("model", model);
-		PullingModel.Draw(AnimShader);
+		glm::mat4 model_3 = glm::mat4(1.0f);
+		model_3 = glm::translate(model_3, glm::vec3(1.5f, -1.3f, -2.0f)); // translate it down so it's at the center of the scene
+		model_3 = glm::scale(model_3, glm::vec3(.02f, .02f, .02f));	// it's a bit too big for our scene, so scale it down
+		AnimShader.setMat4("model", model_3);
+		Model.Draw(AnimShader);
 
-
-		/*BoneShader.use();
+		BoneShader.use();
 		BoneShader.setMat4("projection", projection);
 		BoneShader.setMat4("view", view);
-		BoneShader.setMat4("model", model);
-		animator.DrawBones();*/
 
+		BoneShader.setMat4("model", model_1);
+		Pullinganimator.DrawBones();
+
+		BoneShader.setMat4("model", model_2);
+		Walkinganimator.DrawBones();
+
+		BoneShader.setMat4("model", model_3);
+		blender.DrawBones();
+		
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
